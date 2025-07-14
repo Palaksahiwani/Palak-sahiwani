@@ -1,120 +1,59 @@
+// DOM Elements
+const navToggle = document.querySelector('.nav-toggle');
+const navMenu = document.querySelector('.nav-menu');
+const navLinks = document.querySelectorAll('.nav-menu a');
+const navbar = document.querySelector('.navbar');
+
+// Mobile Navigation Toggle
+navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    const icon = navToggle.querySelector('i');
+    
+    if (navMenu.classList.contains('active')) {
+        icon.setAttribute('data-lucide', 'x');
+    } else {
+        icon.setAttribute('data-lucide', 'menu');
+    }
+    
+    // Reinitialize lucide icons
+    lucide.createIcons();
+});
+
+// Close mobile menu when clicking on a link
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        const icon = navToggle.querySelector('i');
+        icon.setAttribute('data-lucide', 'menu');
+        lucide.createIcons();
+    });
+});
+
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = 'none';
+    }
+});
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+            const offsetTop = target.offsetTop - 70;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
             });
         }
     });
 });
-
-// Navbar scroll effect
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-});
-
-// Mobile menu toggle
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-
-hamburger.addEventListener('click', function() {
-    navLinks.classList.toggle('active');
-    hamburger.classList.toggle('active');
-});
-
-// Form submission
-document.getElementById('consultationForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        phone: document.getElementById('phone').value,
-        company: document.getElementById('company').value,
-        message: document.getElementById('message').value
-    };
-    
-    // Show success message
-    showNotification('Thank you for your interest! I will contact you within 24 hours.', 'success');
-    
-    // Reset form
-    this.reset();
-    
-    // In a real implementation, you would send this data to your server
-    console.log('Form submitted:', formData);
-});
-
-// Notification system
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.innerHTML = `
-        <i class="fas fa-check-circle"></i>
-        <span>${message}</span>
-        <button class="close-btn" onclick="this.parentElement.remove()">
-            <i class="fas fa-times"></i>
-        </button>
-    `;
-    
-    // Add notification styles
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: ${type === 'success' ? '#10B981' : '#4F46E5'};
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        z-index: 10000;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        animation: slideIn 0.3s ease-out;
-    `;
-    
-    document.body.appendChild(notification);
-    
-    // Auto remove after 5 seconds
-    setTimeout(() => {
-        notification.remove();
-    }, 5000);
-}
-
-// Add slide-in animation for notifications
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    .notification .close-btn {
-        background: none;
-        border: none;
-        color: white;
-        cursor: pointer;
-        padding: 0;
-        margin-left: 10px;
-    }
-`;
-document.head.appendChild(style);
 
 // Intersection Observer for animations
 const observerOptions = {
@@ -125,73 +64,81 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('loading');
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
         }
     });
 }, observerOptions);
 
-// Observe all sections for animations
-document.querySelectorAll('section').forEach(section => {
-    observer.observe(section);
+// Animate elements on scroll
+const animateElements = document.querySelectorAll('.service-card, .benefit-item, .contact-item');
+animateElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+});
+
+// Floating cards animation
+const floatingCards = document.querySelectorAll('.card');
+floatingCards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 1.5}s`;
+});
+
+// Contact form handling (placeholder)
+const ctaButtons = document.querySelectorAll('.cta-button');
+ctaButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Add click animation
+        button.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            button.style.transform = 'scale(1)';
+        }, 100);
+        
+        // Show alert (in a real scenario, this would open a modal or redirect)
+        const buttonText = button.textContent.trim();
+        if (buttonText.includes('Consultation')) {
+            alert('Thank you for your interest! This would typically open a calendar booking system.');
+        } else if (buttonText.includes('Quote')) {
+            alert('Thank you for your interest! This would typically open a quote request form.');
+        } else if (buttonText.includes('Strategy Call')) {
+            alert('Thank you for your interest! This would typically redirect to a calendar booking page.');
+        }
+    });
+});
+
+// Social links handling
+const socialLinks = document.querySelectorAll('.social-link');
+socialLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const platform = link.textContent.trim();
+        alert(`This would redirect to Palak's ${platform} profile.`);
+    });
 });
 
 // Parallax effect for hero section
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
-    const hero = document.querySelector('.hero');
-    const floatingElements = document.querySelectorAll('.floating-element');
+    const parallaxElements = document.querySelectorAll('.floating-cards .card');
     
-    if (hero) {
-        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-    
-    floatingElements.forEach((element, index) => {
+    parallaxElements.forEach((element, index) => {
         const speed = 0.5 + (index * 0.1);
-        element.style.transform = `translateY(${scrolled * speed}px)`;
+        const yPos = -(scrolled * speed);
+        element.style.transform = `translateY(${yPos}px)`;
     });
 });
 
-// Count up animation for statistics
-function animateCounter(element, target, duration = 2000) {
-    const start = 0;
-    const increment = target / (duration / 16);
-    let current = start;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            current = target;
-            clearInterval(timer);
-        }
-        element.textContent = Math.floor(current) + (target >= 100 ? '+' : '');
-    }, 16);
-}
-
-// Animate counters when they come into view
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const counter = entry.target;
-            const target = parseInt(counter.textContent);
-            animateCounter(counter, target);
-            counterObserver.unobserve(counter);
-        }
-    });
-});
-
-// Observe all counter elements
-document.querySelectorAll('.stat h3').forEach(counter => {
-    counterObserver.observe(counter);
-});
-
-// Typing effect for hero title
+// Typing effect for hero title (optional enhancement)
 function typeWriter(element, text, speed = 50) {
     let i = 0;
-    element.textContent = '';
+    element.innerHTML = '';
     
     function type() {
         if (i < text.length) {
-            element.textContent += text.charAt(i);
+            element.innerHTML += text.charAt(i);
             i++;
             setTimeout(type, speed);
         }
@@ -200,141 +147,113 @@ function typeWriter(element, text, speed = 50) {
     type();
 }
 
-// Initialize typing effect when page loads
-window.addEventListener('load', function() {
+// Initialize typing effect on page load
+document.addEventListener('DOMContentLoaded', () => {
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) {
         const originalText = heroTitle.textContent;
-        typeWriter(heroTitle, originalText, 30);
+        // Uncomment the next line if you want the typing effect
+        // typeWriter(heroTitle, originalText, 30);
     }
 });
 
-// Service card hover effects
-document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px) scale(1.02)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
-
-// Dynamic background particles
-function createParticle() {
-    const particle = document.createElement('div');
-    particle.className = 'particle';
-    particle.style.cssText = `
-        position: absolute;
-        width: 4px;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        pointer-events: none;
-        animation: particleFloat 8s linear infinite;
-    `;
-    
-    particle.style.left = Math.random() * 100 + '%';
-    particle.style.animationDelay = Math.random() * 8 + 's';
-    
-    document.querySelector('.hero-background').appendChild(particle);
-    
-    setTimeout(() => {
-        particle.remove();
-    }, 8000);
-}
-
-// Create particles periodically
-setInterval(createParticle, 500);
-
-// Add particle animation styles
-const particleStyle = document.createElement('style');
-particleStyle.textContent = `
-    @keyframes particleFloat {
-        0% {
-            transform: translateY(100vh) rotate(0deg);
-            opacity: 0;
-        }
-        10% {
-            opacity: 1;
-        }
-        90% {
-            opacity: 1;
-        }
-        100% {
-            transform: translateY(-100px) rotate(360deg);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(particleStyle);
-
-// Add mobile navigation styles
-const mobileNavStyle = document.createElement('style');
-mobileNavStyle.textContent = `
-    @media (max-width: 768px) {
-        .nav-links {
-            position: fixed;
-            top: 80px;
-            left: -100%;
-            width: 100%;
-            height: calc(100vh - 80px);
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            padding-top: 2rem;
-            transition: left 0.3s ease;
-            z-index: 999;
-        }
-        
-        .nav-links.active {
-            left: 0;
-        }
-        
-        .nav-links li {
-            margin: 1rem 0;
-        }
-        
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-    }
-`;
-document.head.appendChild(mobileNavStyle);
-
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', function() {
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
-    });
-});
-
-// Lazy loading for images
-const images = document.querySelectorAll('img');
-const imageObserver = new IntersectionObserver((entries) => {
+// Smooth reveal animations for sections
+const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            const img = entry.target;
-            img.src = img.src;
-            img.classList.add('loaded');
-            imageObserver.unobserve(img);
+            entry.target.classList.add('animate-in');
         }
     });
+}, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
 });
 
-images.forEach(img => {
-    imageObserver.observe(img);
+const sections = document.querySelectorAll('section');
+sections.forEach(section => {
+    sectionObserver.observe(section);
 });
 
-console.log('Palak Sahiwani Digital Marketing Website Loaded Successfully!');
+// Add CSS class for section animations
+const style = document.createElement('style');
+style.textContent = `
+    section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    
+    section.animate-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .hero {
+        opacity: 1;
+        transform: translateY(0);
+    }
+`;
+document.head.appendChild(style);
+
+// Initialize Lucide icons
+lucide.createIcons();
+
+// Performance optimization: Debounce scroll events
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Apply debounce to scroll events
+const debouncedScrollHandler = debounce(() => {
+    // Navbar scroll effect
+    if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    } else {
+        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.boxShadow = 'none';
+    }
+}, 10);
+
+window.addEventListener('scroll', debouncedScrollHandler);
+
+// Easter egg: Konami code
+let konamiCode = [];
+const konamiSequence = [
+    'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+    'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+    'KeyB', 'KeyA'
+];
+
+document.addEventListener('keydown', (e) => {
+    konamiCode.push(e.code);
+    if (konamiCode.length > konamiSequence.length) {
+        konamiCode.shift();
+    }
+    
+    if (konamiCode.join('') === konamiSequence.join('')) {
+        // Easter egg triggered
+        document.body.style.animation = 'rainbow 2s infinite';
+        setTimeout(() => {
+            document.body.style.animation = '';
+        }, 10000);
+    }
+});
+
+// Add rainbow animation
+const rainbowStyle = document.createElement('style');
+rainbowStyle.textContent = `
+    @keyframes rainbow {
+        0% { filter: hue-rotate(0deg); }
+        100% { filter: hue-rotate(360deg); }
+    }
+`;
+document.head.appendChild(rainbowStyle);
