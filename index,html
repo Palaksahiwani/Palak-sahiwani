@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palak Sahiwani - Digital Marketing Freelance Expert</title>
+    <meta name="description" content="Professional digital marketing freelancer offering SEO, Google Ads, Meta Ads, and social media marketing services for businesses worldwide.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Palak Sahiwani</h2>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="sparkle">✨</span> Palak Sahiwani
+                        <br><span class="gradient-text">Your Trusted Digital Marketing Expert</span>
+                    </h1>
+                    <p class="hero-description">
+                        Passionate and performance-driven digital marketing freelancer offering personalized services for startups, brands, and entrepreneurs who are serious about growth.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Get Started</a>
+                        <a href="#services" class="btn btn-secondary">View Services</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="floating-cards">
+                        <div class="card card-1">
+                            <i class="fas fa-chart-line"></i>
+                            <span>ROI Growth</span>
+                        </div>
+                        <div class="card card-2">
+                            <i class="fas fa-search"></i>
+                            <span>SEO Optimization</span>
+                        </div>
+                        <div class="card card-3">
+                            <i class="fas fa-bullhorn"></i>
+                            <span>Digital Ads</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg"></div>
+    </section>
+
+    <!-- What I Do Section -->
+    <section class="what-i-do">
+        <div class="container">
+            <div class="section-header">
+                <h2>🚀 What I Do as a Digital Marketing Expert</h2>
+                <p>I help businesses establish a powerful online presence, attract quality leads, and scale through data-backed strategies.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Powerful Online Presence</h3>
+                    <p>Build and strengthen your brand's digital footprint across all platforms</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Quality Lead Generation</h3>
+                    <p>Attract and convert high-value prospects into loyal customers</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Data-Backed Strategies</h3>
+                    <p>Make informed decisions with comprehensive analytics and reporting</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Me Section -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="section-header">
+                <h2>🔥 Why Choose My Digital Marketing Services?</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Customized Strategy for Every Business</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Result-Oriented & ROI-Focused Campaigns</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Fast, Transparent Communication</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>End-to-End Digital Marketing Services</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Data-Driven Decisions with Real-Time Reporting</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Years of Hands-on Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>📋 My Core Digital Marketing Services</h2>
+                <p>Comprehensive solutions tailored to your business needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO (Search Engine Optimization)</h3>
+                    <p>Grow your organic visibility and dominate Google rankings with proven SEO strategies that drive sustainable traffic.</p>
+                    <ul class="service-features">
+                        <li>Keyword Research & Strategy</li>
+                        <li>On-page & Technical SEO</li>
+                        <li>Content Optimization</li>
+                        <li>Link Building</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Google Ads & Meta Ads (PPC)</h3>
+                    <p>Drive instant traffic and qualified leads using highly targeted paid campaigns with expert management.</p>
+                    <ul class="service-features">
+                        <li>Campaign Strategy & Setup</li>
+                        <li>Ad Copy & Creative Design</li>
+                        <li>Audience Targeting</li>
+                        <li>Bid Management & Optimization</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Social Media Marketing</h3>
+                    <p>Engage, connect, and grow your audience across Instagram, Facebook, and LinkedIn with smart, creative content.</p>
+                    <ul class="service-features">
+                        <li>Content Strategy & Creation</li>
+                        <li>Community Management</li>
+                        <li>Social Media Advertising</li>
+                        <li>Analytics & Reporting</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-analytics"></i>
+                    </div>
+                    <h3>Conversion Tracking & Analysis</h3>
+                    <p>Optimize every rupee you spend with comprehensive tracking, analyzing, and improving every step of your funnel.</p>
+                    <ul class="service-features">
+                        <li>Conversion Setup & Tracking</li>
+                        <li>Competitor Analysis</li>
+                        <li>Performance Optimization</li>
+                        <li>ROI Reporting</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience Section -->
+    <section class="target-audience">
+        <div class="container">
+            <div class="section-header">
+                <h2>💼 Who Can Benefit from My Services?</h2>
+            </div>
+            <div class="audience-grid">
+                <div class="audience-card">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Startups & Small Businesses</h3>
+                    <p>Looking to establish their digital presence and grow rapidly</p>
+                </div>
+                <div class="audience-card">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Coaches & Consultants</h3>
+                    <p>Personal brands seeking to expand their reach and client base</p>
+                </div>
+                <div class="audience-card">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>Ecommerce Brands</h3>
+                    <p>Online stores wanting to increase sales and market share</p>
+                </div>
+                <div class="audience-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Service-Based Businesses</h3>
+                    <p>Companies looking to generate more leads and customers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Palak Sahiwani</h2>
+                    <p>With years of hands-on experience in digital marketing, I bring both creative thinking and analytical skills to the table. My goal is to help your business stand out, grow fast, and stay ahead of the competition.</p>
+                    <p>I believe in building long-term partnerships with my clients, focusing on sustainable growth and measurable results. Every strategy is tailored to your unique business needs and market dynamics.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <h3>50+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat">
+                            <h3>95%</h3>
+                            <p>Client Satisfaction</p>
+                        </div>
+                        <div class="stat">
+                            <h3>3+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="profile-card">
+                        <div class="profile-image">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <h3>Palak Sahiwani</h3>
+                        <p>Digital Marketing Expert</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fas fa-globe"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>📞 Let's Work Together!</h2>
+                <p>Looking for a skilled and reliable digital marketing partner? Contact me today for a custom plan that fits your goals and budget.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>hello@palaksahiwani.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-globe"></i>
+                        <div>
+                            <h3>Website</h3>
+                            <p>www.palaksahiwani.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Based in India | Serving Clients Worldwide</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Palak Sahiwani</h3>
+                    <p>Digital Marketing Freelance Expert</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fas fa-globe"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Palak Sahiwani. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
